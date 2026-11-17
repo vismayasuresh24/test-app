@@ -1,75 +1,105 @@
-# Quiz CLI
+# quiz-cli
 
-An interactive command-line quiz game for learning JavaScript, Node.js, and general programming concepts. The application runs in Node.js and uses built-in modules only.
+An interactive command-line quiz game for learning JavaScript and general programming concepts. The project is located in the `test-app/` directory of this repository.
 
 ## Features
 
-- Three quiz categories: JavaScript Basics, Node.js Fundamentals, and General Programming
-- Choose a category and answer all available questions
-- Questions are shuffled for each quiz
-- Immediate answer feedback, explanations, progress display, and final score summary
-- Review incorrect answers after completing a quiz
-- Option to start another quiz without restarting the application
-- Colorized terminal output using ANSI escape codes
+- Choose from three quiz categories: JavaScript Basics, Node.js Fundamentals, and General Programming.
+- Select how many questions to answer.
+- Answer multiple-choice questions in the terminal.
+- See explanations, quiz progress, and a final score with performance feedback.
+- Review incorrect answers.
+- Choose whether to play again.
 
-## Requirements
+Questions and answer explanations are stored in `data/questions.json`.
 
-- Node.js 18.0.0 or later
-- A terminal that supports interactive input
+## Technology Stack
 
-No third-party npm dependencies are required.
+- **Node.js** with ECMAScript modules
+- **Node.js built-in modules:** `node:fs/promises`, `node:url`, `node:path`, and `readline`
+- **npm scripts** for starting the application and running tests
+- **External dependencies:** None are listed in `package.json`
 
-## Getting started
+## Project Structure
 
-Clone the repository and enter the project directory:
-
-```sh
-git clone https://github.com/vismayasuresh24/test-app.git
-cd test-app/test-app
+```text
+.
+├── README.md
+└── test-app/
+    ├── data/
+    │   └── questions.json  # Quiz categories, questions, answers, and explanations
+    ├── index.js            # CLI entry point and quiz/replay flow
+    ├── package.json        # Project metadata, Node requirement, and npm scripts
+    └── src/
+        ├── colors.js       # ANSI terminal styling helpers
+        ├── input.js        # Interactive prompts and input helpers
+        └── quiz.js         # Question selection, scoring, feedback, and review
 ```
 
-Start the quiz:
+## Prerequisites
 
-```sh
+- Node.js **18.0.0 or later**
+- npm, included with Node.js
+
+## Installation and Setup
+
+The application files are in `test-app/`, so run project commands from that directory:
+
+```bash
+cd test-app
+```
+
+There are no external npm dependencies listed in the project manifest. No separate dependency installation is required to run the application.
+
+## How to Run
+
+From the `test-app/` directory:
+
+```bash
 npm start
 ```
 
-You can also run it directly with Node.js:
+This runs `node index.js` and starts the interactive quiz in the terminal.
 
-```sh
-node index.js
-```
+## Usage
 
-Follow the prompts to select a category, choose the number of questions when available, and enter the number corresponding to your answer. Press Enter between questions and choose whether to play again at the end.
+1. Start the application with `npm start`.
+2. Follow the terminal prompts to select a quiz category and question count.
+3. Answer the multiple-choice questions.
+4. Review your score and any incorrect answers.
+5. Use the replay prompt if you want to start another quiz.
 
-## Project structure
+The available categories and questions are defined in `data/questions.json`.
 
-```text
-test-app/
-├── data/
-│   └── questions.json   # Categories, questions, answers, and explanations
-├── src/
-│   ├── colors.js        # ANSI terminal color helpers
-│   ├── input.js         # Interactive input and selection helpers
-│   └── quiz.js          # Quiz state, question flow, and results
-├── index.js             # Application entry point
-└── package.json         # Project metadata and npm scripts
-```
+## Environment Configuration
 
-## Questions and categories
+No environment variables or configuration files are identified in the retrieved repository information.
 
-Quiz content is stored in `data/questions.json`, grouped under `categories`. Each category has a display name and a list of questions. A question includes its prompt, an `options` array, the zero-based index of the correct option in `answer`, and an optional `explanation`.
+## API
 
-To add content, edit the JSON while preserving this structure. The game offers all questions and, when the category has enough questions, options to play a shorter quiz.
+This is a command-line application. No API endpoints or server configuration are identified.
 
-## Development
+## Tests
 
-The project uses JavaScript ES modules and Node.js built-in APIs. Run the test script with:
+The package defines this test script:
 
-```sh
+```bash
 npm test
 ```
 
+It invokes Node.js’s built-in test runner with `node --test`. No test files were listed in the retrieved repository information, so the presence of dedicated tests is not confirmed.
+
+## Troubleshooting
+
+- **Commands do not find the project files:** Change into the nested project directory first: `cd test-app`.
+- **The application cannot start:** Confirm that Node.js is version 18 or later.
+- **The quiz exits with an error:** The entry point catches errors and exits with status code `1`. Review the terminal output for the error details.
+- **Interactive prompts do not work as expected:** Run the application in an interactive terminal, since it uses terminal input prompts.
+
+## Contributing
+
+No contribution guidelines were found in the retrieved repository information. If you submit a change, keep it consistent with the existing Node.js project structure and update the relevant source or question data. Run the available check with `npm test` from `test-app/` and describe what you changed.
+
 ## License
 
-This project declares the MIT license in `package.json`.
+`package.json` identifies the project license as **MIT**. A separate license file was not present in the retrieved repository information.
